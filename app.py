@@ -1,7 +1,7 @@
 """
 Manufacturing Inventory & Raw Material Predictor
 Master Group of Industries — Internal Supply Chain Intelligence Platform
-Author: Portfolio Project | Built with Python, Streamlit, Pandas, NumPy, Plotly
+Author: Lokesh Kumar | Built with Python, Streamlit, Pandas, NumPy, Plotly
 """
 
 import streamlit as st
@@ -179,19 +179,6 @@ st.markdown("""
         margin-bottom: 1rem;
     }
 
-    /* ── Status pill ── */
-    .pill {
-        display: inline-block;
-        padding: 0.2rem 0.65rem;
-        border-radius: 20px;
-        font-size: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-    }
-    .pill-critical { background: rgba(239,68,68,0.15); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
-    .pill-warning  { background: rgba(245,158,11,0.15); color: #fcd34d; border: 1px solid rgba(245,158,11,0.3); }
-    .pill-ok       { background: rgba(16,185,129,0.12); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.25); }
-
     /* ── Footer ── */
     .footer {
         text-align: center;
@@ -201,6 +188,7 @@ st.markdown("""
         margin-top: 3rem;
         padding-top: 1.5rem;
         border-top: 1px solid var(--border);
+        line-height: 1.6;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -599,6 +587,11 @@ with st.sidebar:
                     text-transform:uppercase; margin-top:0.25rem;'>
             Intelligence Platform
         </div>
+        <div style='margin-top:0.8rem; display:inline-block; background:rgba(59,130,246,0.1); 
+                    border:1px solid rgba(59,130,246,0.3); border-radius:20px; 
+                    padding:0.4rem 0.8rem; font-size:0.7rem; color:#93c5fd; font-weight:700;'>
+            👨‍💻 Engineered by Lokesh Kumar
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -863,7 +856,6 @@ def color_status(val):
     }
     return colors.get(val, "")
 
-# 🚀 THE FIX IS RIGHT HERE 🚀
 styled = (
     display_df.style
     .map(color_status, subset=["Status"])
@@ -964,7 +956,8 @@ st.markdown(f"""
 <div class='footer'>
     Master Group of Industries — Supply Chain Intelligence Platform &nbsp;·&nbsp;
     Foam & Mattress Division &nbsp;·&nbsp; Build v2.1.0 &nbsp;·&nbsp;
-    Powered by Python · Streamlit · Plotly &nbsp;·&nbsp;
+    Powered by Python · Streamlit · Plotly <br><br>
+    <b style='color:#93c5fd; font-size: 0.85rem;'>👨‍💻 Designed & Engineered by Lokesh Kumar</b><br>
     {datetime.now().strftime("%Y")} MGI Internal Systems. All rights reserved.
 </div>
 """, unsafe_allow_html=True)
