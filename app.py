@@ -576,9 +576,6 @@ def chart_consumption_heatmap(df: pd.DataFrame) -> go.Figure:
     return fig
 
 
-# ─────────────────────────────────────────────
-#  HELPER — Format large PKR numbers
-# ─────────────────────────────────────────────
 def fmt_pkr(value: float) -> str:
     if value >= 1_000_000_000:
         return f"PKR {value/1_000_000_000:.2f}B"
@@ -866,9 +863,10 @@ def color_status(val):
     }
     return colors.get(val, "")
 
+# 🚀 THE FIX IS RIGHT HERE 🚀
 styled = (
     display_df.style
-    .applymap(color_status, subset=["Status"])
+    .map(color_status, subset=["Status"])
     .format({
         "Stock (T)":              "{:.1f}",
         "Sim. Burn/Day (T)":      "{:.2f}",
